@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Blog
+    %title Pixova
     = csrf_meta_tags
     = action_cable_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
@@ -10,12 +10,14 @@
       .container
 
         %nav.navbar
-          %a.navbar-brand{:href => "#"} Navbar
+          %a.navbar-brand{:href => "#"} Pixova
 
           %ul.nav.navbar-nav.pull-xs-right
             %li.nav-item.active
               = link_to 'Home', root_path, class: 'nav-link'
             - if user_signed_in?
+              %li.nav-item
+                = link_to 'Blogs', blogs_path, class: 'nav-link'
               %li.nav-item
                 = link_to 'Dashboard', edit_user_registration_path, class: 'nav-link'
               %li.nav-item

@@ -7,6 +7,7 @@ gem 'pg', '~> 0.18.4'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
 gem 'haml'
+gem 'haml-rails', '~> 0.9.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -27,6 +28,7 @@ gem 'turbolinks', '~> 5.x'
 
 
 gem 'devise', '4.0.0.rc2'
+gem 'friendly_id', '~> 5.1.0'
 
 
 

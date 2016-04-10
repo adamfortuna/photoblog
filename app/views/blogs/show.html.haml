@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @blog.name
+%p
+  %b User:
+  = @blog.user_id
+%p
+  %b Posts count:
+  = @blog.posts_count
+%p
+  %b About:
+  = @blog.about
+
+= link_to 'Edit', edit_blog_path(@blog)
+\|
+= link_to 'Back', blogs_path
