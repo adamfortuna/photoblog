@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "authors": [
+    "Adam Fortuna <adam@fortuna.name>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.2"
+  }
+}

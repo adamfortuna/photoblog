@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title Blog
+    = csrf_meta_tags
+    = action_cable_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
+  %body
+    .navbar-light
+      .container
+
+        %nav.navbar
+          %a.navbar-brand{:href => "#"} Navbar
+
+          %ul.nav.navbar-nav.pull-xs-right
+            %li.nav-item.active
+              = link_to 'Home', home_path, class: 'nav-link'
+            %li.nav-item
+              = link_to 'Features', features_path, class: 'nav-link'
+            %li.nav-item
+              = link_to 'Pricing', pricing_path, class: 'nav-link'
+            %li.nav-item
+              = link_to 'About', about_path, class: 'nav-link'
+
+    = yield
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
