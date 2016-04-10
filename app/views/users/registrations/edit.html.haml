@@ -1,0 +1,42 @@
+.container
+  %h2 Update Account
+
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = devise_error_messages!
+
+    %fieldset.form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Enter Email'
+      %small.text-muted We'll never share your email with anyone else.
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %small.text-muted
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+
+    %fieldset.form-group
+      = f.label :username
+      = f.text_field :username, class: 'form-control', placeholder: 'Something unique and all you'
+      %small.text-muted Keep it short so that others can find you!
+
+    %fieldset.form-group
+      = f.label :password
+      = f.password_field :password, class: 'form-control'
+      %small.text-muted (#{@minimum_password_length} characters minimum)
+      %small.text-muted (leave blank if you don't want to change it)
+
+    %fieldset.form-group
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: 'form-control'
+
+    %fieldset.form-group
+      = f.label :current_password
+      = f.password_field :current_password, class: 'form-control'
+      %small.text-muted (we need your current password to confirm your changes)
+
+    %fieldset.form-group
+      = f.submit 'Update', class: 'btn btn-secondary'
+
+
+  %h3 Cancel my account
+  %p
+    Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+  = link_to "Back", :back

@@ -1,0 +1,21 @@
+.container
+  %h2 Log up
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    %fieldset.form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Enter Email'
+
+    %fieldset.form-group
+      = f.label :password
+      = f.password_field :password, autocomplete: 'off', class: 'form-control'
+
+    %fieldset.form-group.checkbox
+      = f.label :remember_me do
+        = f.check_box :remember_me
+        Remember Me?
+
+
+    %fieldset.form-group
+      = f.submit 'Log In', class: 'btn btn-secondary'
