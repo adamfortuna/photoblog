@@ -12,7 +12,9 @@
 %p
   %b About:
   = @blog.about
-
+%p
+  %b Identifier:
+  = @blog.identifier
 = link_to 'Edit', edit_blog_path(@blog)
 \|
 = link_to 'Back', blogs_path

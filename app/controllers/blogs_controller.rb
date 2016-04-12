@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:edit, :update, :destroy]
 
   # GET /blogs
   def index
@@ -8,6 +8,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1
   def show
+    @blog = Blog.find_by(identifier: request.subdomain)
   end
 
   # GET /blogs/new
@@ -54,6 +55,6 @@ class BlogsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def blog_params
-      params.require(:blog).permit(:name, :about)
+      params.require(:blog).permit(:name, :about, :identifier)
     end
 end

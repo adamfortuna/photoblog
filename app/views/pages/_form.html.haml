@@ -1,0 +1,58 @@
+= form_for @page do |f|
+  - if @page.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@page.errors.count, "error")} prohibited this page from being saved:"
+      %ul
+        - @page.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :template_id
+    = f.number_field :template_id
+  .field
+    = f.label :photos_count
+    = f.number_field :photos_count
+  .field
+    = f.label :videos_count
+    = f.number_field :videos_count
+  .field
+    = f.label :content
+    = f.text_area :content
+  .field
+    = f.label :parent_id
+    = f.number_field :parent_id
+  .field
+    = f.label :order
+    = f.number_field :order
+  .field
+    = f.label :header_photo
+    = f.text_area :header_photo
+  .field
+    = f.label :permalink
+    = f.text_field :permalink
+  .field
+    = f.label :allow_comments
+    = f.check_box :allow_comments
+  .field
+    = f.label :disqus_identifier
+    = f.text_field :disqus_identifier
+  .field
+    = f.label :blog_id
+    = f.number_field :blog_id
+  .field
+    = f.label :type
+    = f.text_field :type
+  .field
+    = f.label :cached_content
+    = f.text_area :cached_content
+  .field
+    = f.label :published_at
+    = f.datetime_select :published_at
+  .field
+    = f.label :short_description
+    = f.text_area :short_description
+  .actions
+    = f.submit 'Save'

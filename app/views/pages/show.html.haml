@@ -1,0 +1,54 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @page.title
+%p
+  %b Template:
+  = @page.template_id
+%p
+  %b Photos count:
+  = @page.photos_count
+%p
+  %b Videos count:
+  = @page.videos_count
+%p
+  %b Content:
+  = @page.content
+%p
+  %b Parent:
+  = @page.parent_id
+%p
+  %b Order:
+  = @page.order
+%p
+  %b Header photo:
+  = @page.header_photo
+%p
+  %b Permalink:
+  = @page.permalink
+%p
+  %b Allow comments:
+  = @page.allow_comments
+%p
+  %b Disqus identifier:
+  = @page.disqus_identifier
+%p
+  %b Blog:
+  = @page.blog_id
+%p
+  %b Type:
+  = @page.type
+%p
+  %b Cached content:
+  = @page.cached_content
+%p
+  %b Published at:
+  = @page.published_at
+%p
+  %b Short description:
+  = @page.short_description
+
+= link_to 'Edit', edit_page_path(@page)
+\|
+= link_to 'Back', pages_path

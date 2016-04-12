@@ -3,4 +3,6 @@ class Blog < ApplicationRecord
   friendly_id :name, use: :slugged
 
   belongs_to :user
+
+  validates :identifier, uniqueness: true
 end

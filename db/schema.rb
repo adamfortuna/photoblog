@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410185051) do
+ActiveRecord::Schema.define(version: 20160412030525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160410185051) do
     t.string   "name"
     t.text     "about"
     t.string   "slug"
+    t.string   "identifier",              null: false
   end
 
   add_index "blogs", ["slug"], name: "index_blogs_on_slug", unique: true, using: :btree
@@ -40,6 +41,32 @@ ActiveRecord::Schema.define(version: 20160410185051) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "permalink",                     null: false
+    t.string   "title",                         null: false
+    t.integer  "template_id",                   null: false
+    t.integer  "photos_count",      default: 0, null: false
+    t.integer  "videos_count",      default: 0, null: false
+    t.text     "content",                       null: false
+    t.integer  "parent_id"
+    t.integer  "order"
+    t.text     "header_photo"
+    t.boolean  "allow_comments"
+    t.string   "disqus_identifier"
+    t.integer  "blog_id"
+    t.string   "type"
+    t.text     "cached_content"
+    t.datetime "published_at"
+    t.text     "short_description"
+  end
+
+  add_index "pages", ["blog_id"], name: "index_pages_on_blog_id", using: :btree
+  add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
+  add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
+  add_index "pages", ["template_id"], name: "index_pages_on_template_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
