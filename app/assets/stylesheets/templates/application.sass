@@ -1,0 +1,95 @@
+$container-max-widths: (xl: 1170px)
+
+$enable-flex: true
+
+@import 'bootstrap/scss/bootstrap'
+
+$primary-color: #3498db
+$primary-color-light: #cce5f6
+$primary-color-light-text: #217dbb
+
+$secondary-color: #92C46D
+$secondary-color-light: #c8e1b6
+$secondary-color-light-text: #5f913a
+
+html, body
+  font-family: "Droid Sans", sans-serif !important
+
+h1, h2, h3, h4, h5
+  font-weight: 700
+
+a
+  text-decoration: underline
+
+.navbar
+  a
+    text-decoration: none
+
+.bg-primary
+  background-color: #3498db !important
+  color: #a9d3f0 !important
+  a
+    color: #a9d3f0 !important
+
+header
+  margin-bottom: 2rem
+  padding-bottom: 1em
+  a
+    font-weight: bold
+
+.card-personal
+  color: $primary-color
+
+
+.cards--posts
+  .card
+    border: none
+    text-decoration: none
+    padding: 1rem 1rem 0.5rem 1rem
+    margin: 0
+
+img
+  max-width: 100%
+
+.cards--photos
+  .card-img-overlay
+    &:hover
+      background-color: rgba(1,1,1,0.4)
+  .photo--meta
+    background-color: rgba(255,255,255,0.65)
+    position: absolute
+    bottom: 0
+    top: auto
+    color: #1a1a1a
+    width: 100%
+    padding: 0.4rem 0.6rem
+
+
+.bold
+  font-weight: bold
+.link-primary
+  color: $primary-color
+.link-secondary
+  color: $secondary-color
+
+.card-category--default
+  color: #555
+  &:hover
+    background-color: #d5d5d5
+    color: #3c3c3c
+.card-category--personal
+  color: $primary-color
+  &:hover
+    background-color: $primary-color-light
+    color: $primary-color-light-text
+.card-category--technical
+  color: $secondary-color
+  &:hover
+    background-color: $secondary-color-light
+    color: $secondary-color-light-text
+
+
+.home
+  .cards--photos
+    border-left: 1px solid #eee
+    padding-left: 3rem

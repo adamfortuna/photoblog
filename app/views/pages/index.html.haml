@@ -1,51 +1,26 @@
-%h1 Listing pages
+.container
+  %h1 Listing pages
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Template
-      %th Photos count
-      %th Videos count
-      %th Content
-      %th Parent
-      %th Order
-      %th Header photo
-      %th Permalink
-      %th Allow comments
-      %th Disqus identifier
-      %th Blog
-      %th Type
-      %th Cached content
-      %th Published at
-      %th Short description
-      %th
-      %th
-      %th
-
-  %tbody
-    - @pages.each do |page|
+  %table
+    %thead
       %tr
-        %td= page.title
-        %td= page.template_id
-        %td= page.photos_count
-        %td= page.videos_count
-        %td= page.content
-        %td= page.parent_id
-        %td= page.order
-        %td= page.header_photo
-        %td= page.permalink
-        %td= page.allow_comments
-        %td= page.disqus_identifier
-        %td= page.blog_id
-        %td= page.type
-        %td= page.cached_content
-        %td= page.published_at
-        %td= page.short_description
-        %td= link_to 'Show', page
-        %td= link_to 'Edit', edit_page_path(page)
-        %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Title
+        %th Permalink
+        %th Published at
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @pages.each do |page|
+        %tr
+          %td= page.title
+          %td= page.permalink
+          %td= page.published_at
+          %td= link_to 'Show', page
+          %td= link_to 'Edit', edit_blog_page_path(@blog, page)
+          %td= link_to 'Destroy', blog_page_path(@blog, page), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Page', new_page_path
+  %br
+
+  = link_to 'New Page', new_blog_page_path(@blog)

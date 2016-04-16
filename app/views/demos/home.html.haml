@@ -1,0 +1,81 @@
+!!!
+%html
+  %head
+    %title Adam Fortuna
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans:400,700', media: 'all'
+    = stylesheet_link_tag 'templates/application', media: 'all'
+    = stylesheet_link_tag 'templates/home', media: 'all'
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css', media: 'all'
+  %body.home
+    %nav.navbar.navbar-full.navbar-dark.bg-primary
+      %a.navbar-brand{ href: '#' } Adam Fortuna
+      %a.pull-xs-left{ href: '#' }
+        %i.fa.fa-twitter
+        @adamfortuna
+
+      %ul.nav.nav-pills.navbar-nav.pull-xs-right{ role: 'navigation' }
+        %li.nav-item
+          %a.nav-link{ href: '#' } About
+        %li.nav-item
+          %a.nav-link{ href: '#' } Articles
+        %li.nav-item
+          %a.nav-link{ href: '#' } Photos
+
+
+    %header.bg-primary
+      .container
+        .row
+          .col-md-8.col-md-offset-1
+            %img.pull-xs-left{ alt: 'Adam Fortuna', src: "/assets/templates/adam-fortuna.png" }
+            %h1 Adam Fortuna
+            %p
+              Hey hey! I'm a developer who lives in Orlando, FL. Right
+              %a now
+              I work at
+              = succeed ',' do
+                %a Code School
+              listen to a lot of
+              = succeed ',' do
+                %a audiobooks
+              set way too many
+              %a goals
+              and
+              %a tweet
+              often. <a class="troll" href="javascript: troll();"> <i class="fi-music"></i> </a> </p>
+
+  .container
+    .row
+      .col-md-5.col-md-offset-1.cards--posts
+        %p.text-muted
+          %strong Articles.
+          In the mood for
+          %a.link-primary.bold personal
+          or
+          = succeed '?' do
+            %a.link-secondary.bold technical
+
+        - @posts.each do |post|
+          %a.card{ href: '#', class: "card-category--#{post[:category]}" }
+            %h3= post[:title]
+            %p.text-muted.card-text= post[:text]
+
+        %a.card.card-block.card-category--default{ href: '#' }
+          %h3.card-title More Articles
+          %p.text-muted.card-text 86 Articles Total
+
+      .col-md-6.cards--photos
+        %p.text-muted
+          %strong Travel Photos.
+          Recent trips and getaways.
+          %a{ href: '#'} Japan
+          is my favorite.
+
+
+        - @photos.each do |photo|
+          %a.card{ href: '#' }
+            %img.card-img{ src: photo[:src], 'data-src': photo[:src] }
+            .card-img-overlay
+            .photo--meta
+              %h3.card-title= photo[:title]
+              %p.card-text
+                %small.text-muted= photo[:text]

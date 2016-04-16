@@ -1,9 +1,10 @@
 class PagesController < ApplicationController
+  before_action :set_blog
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
   # GET /pages
   def index
-    @pages = Page.all
+    @pages = @blog.pages.all
   end
 
   # GET /pages/1
@@ -13,6 +14,8 @@ class PagesController < ApplicationController
   # GET /pages/new
   def new
     @page = Page.new
+    @page.type = 'Pages::TextPage'
+    @page.template = Template.first
   end
 
   # GET /pages/1/edit
@@ -23,8 +26,12 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
 
+    @page.blog = @blog
+    @page.type = 'Pages::TextPage'
+    @page.template = Template.first
+
     if @page.save
-      redirect_to @page, notice: 'Page was successfully created.'
+      redirect_to blog_pages_path(blog: @blog, page: @page), notice: 'Page was successfully created.'
     else
       render :new
     end
@@ -33,7 +40,7 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   def update
     if @page.update(page_params)
-      redirect_to @page, notice: 'Page was successfully updated.'
+      redirect_to blog_pages_path(blog: @blog, page: @page), notice: 'Page was successfully updated.'
     else
       render :edit
     end
@@ -42,13 +49,17 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   def destroy
     @page.destroy
-    redirect_to pages_url, notice: 'Page was successfully destroyed.'
+    redirect_to blog_pages_path(@blog), notice: 'Page was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
-      @page = Page.find(params[:id])
+      @page = @blog.pages.friendly.find(params[:id])
+    end
+
+    def set_blog
+      @blog = current_user.blogs.friendly.find(params[:blog_id] ? params[:blog_id] : params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

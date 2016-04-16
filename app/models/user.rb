@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :blogs
+  has_many :templates
 
   extend FriendlyId
   friendly_id :username, use: :slugged
