@@ -17,7 +17,7 @@
           %td= page.title
           %td= page.permalink
           %td= page.published_at
-          %td= link_to 'Show', page
+          %td= link_to 'Show', page.url
           %td= link_to 'Edit', edit_blog_page_path(@blog, page)
           %td= link_to 'Destroy', blog_page_path(@blog, page), :method => :delete, :data => { :confirm => 'Are you sure?' }
 

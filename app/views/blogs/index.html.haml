@@ -1,24 +1,26 @@
-%h1 Listing blogs
+.container
+  %h1 Listing blogs
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th About
-      %th
-      %th
-      %th
-
-  %tbody
-    - @blogs.each do |blog|
+  %table
+    %thead
       %tr
-        %td= blog.name
-        %td= blog.about
-        %td= link_to 'New Post', new_blog_page_path(blog)
-        %td= link_to 'Show', blog
-        %td= link_to 'Edit', edit_blog_path(blog)
-        %td= link_to 'Destroy', blog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Name
+        %th About
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @blogs.each do |blog|
+        %tr
+          %td= blog.name
+          %td= blog.about
+          %td= link_to 'New Page', new_blog_page_path(blog)
+          %td= link_to 'Pages', blog_pages_path(blog)
+          %td= link_to 'Show', blog
+          %td= link_to 'Edit', edit_blog_path(blog)
+          %td= link_to 'Destroy', blog, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Blog', new_blog_path
+  %br
+
+  = link_to 'New Blog', new_blog_path

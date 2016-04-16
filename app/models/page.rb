@@ -11,4 +11,7 @@ class Page < ApplicationRecord
     self.cached_content = content
   end
 
+  def url
+    "http://#{blog.identifier}.pixova.dev:3000/#{permalink}"
+  end
 end
