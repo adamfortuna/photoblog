@@ -1,0 +1,52 @@
+!!!
+%html
+  %head
+    %title Adam Fortuna
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Sans:400,700', media: 'all'
+    = stylesheet_link_tag 'templates/application', media: 'all'
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css', media: 'all'
+  %body.home
+    %nav.navbar.navbar-full.navbar-dark.bg-primary
+      .navbar--title
+        %a.navbar-brand{ href: '#' } Adam Fortuna
+        %a.pull-xs-left.navbar--twitter{ href: '#' }
+          %i.fa.fa-twitter
+          %span @adamfortuna
+
+      %ul.nav.nav-pills.navbar-nav.pull-xs-right{ role: 'navigation' }
+        %li.nav-item
+          %a.nav-link{ href: '#' }
+            %i.fa.fa-user{ 'aria-hidden': 'true' }
+            About
+        %li.nav-item
+          %a.nav-link{ href: '#' }
+            %i.fa.fa-pencil{ 'aria-hidden': 'true' }
+            Articles
+        %li.nav-item
+          %a.nav-link{ href: '#' }
+            %i.fa.fa-camera{ 'aria-hidden': 'true' }
+            Photos
+
+    %header.bg-primary.main--header
+      .container
+        .row
+          .col-md-10.col-md-offset-1
+            %img.pull-xs-left{ alt: 'Adam Fortuna', src: "/assets/templates/adam-fortuna.png" }
+            %h1 Adam Fortuna
+            %p.lead
+              Hey hey! I'm a developer who lives in Orlando, FL. Right
+              %a{ href: '#' } now
+              I work at
+              = succeed ',' do
+                %a{ href: '#' } Code School
+              listen to a lot of
+              = succeed ',' do
+                %a{ href: '#' } audiobooks
+              set way too many
+              %a{ href: '#' } goals
+              and
+              %a{ href: '#' } tweet
+              often.
+
+  .container
+    = yield

@@ -1,5 +1,5 @@
 class DemosController < ApplicationController
-  layout false
+  layout 'demo'
 
   def show
 

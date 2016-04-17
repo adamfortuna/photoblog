@@ -17,6 +17,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "v4.0.0-alpha.2"
+    "bootstrap": "git@github.com:twbs/bootstrap.git#v4-dev"
   }
 }

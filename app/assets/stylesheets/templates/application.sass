@@ -1,45 +1,137 @@
+// My colors
+$primary-color: #3498db
+$primary-color-light: #cce5f6
+$primary-color-light-text: #217dbb
+// Top border color
+$primary-color-dark: #303338
+$primary-medium-color: #1d6fa5
+
+$light-text-color: #a9d3f0
+
+$secondary-color: #92C46D
+$secondary-color-light: #c8e1b6
+$secondary-color-light-text: #5f913a
+$white: #fff
+
+// Bootstrap
+$brand-primary: $primary-color
 $container-max-widths: (xl: 1170px)
+
+// $navbar-light-color
+// $navbar-light-active-color
+// $navbar-light-hover-color
+// $navbar-dark-color: $light-text-color
+// $navbar-dark-active-color: $light-text-color
+// $navbar-dark-hover-color: #fff
+//
+// $navbar-padding-vertical: 1rem
+// $navbar-padding-horizontal: 2rem
+
+// Navbar
+$navbar-border-radius:              0
+$navbar-padding-x:                  2rem
+$navbar-padding-y:                  1rem
+
+$navbar-dark-color:                 $light-text-color
+$navbar-dark-hover-color:           $white
+$navbar-dark-active-color:          $light-text-color
+$navbar-dark-disabled-color:        $light-text-color
+
+
+
+
+$font-family-sans-serif:     "Droid Sans", sans-serif
+$font-family-serif:          "Droid Sans", sans-serif
 
 $enable-flex: true
 
 @import 'bootstrap/scss/bootstrap'
 
-$primary-color: #3498db
-$primary-color-light: #cce5f6
-$primary-color-light-text: #217dbb
 
-$secondary-color: #92C46D
-$secondary-color-light: #c8e1b6
-$secondary-color-light-text: #5f913a
-
-html, body
-  font-family: "Droid Sans", sans-serif !important
-
+/* Undo Bootstraps weight */
 h1, h2, h3, h4, h5
   font-weight: 700
-
 a
   text-decoration: underline
+img
+  max-width: 100%
 
+
+/* General Helpers */
+.bold
+  font-weight: bold
+.primary--color
+  color: $primary-color
+.secondary--color
+  color: $secondary-color
+
+// Layout specific
+/* Navbar */
 .navbar
+  border-top: 5px solid $primary-color-dark
   a
     text-decoration: none
+    transition: color 0.4s
+  .navbar--title
+    a
+      color: $navbar-dark-color
+      &:hover
+        color: $white
 
-.bg-primary
-  background-color: #3498db !important
-  color: #a9d3f0 !important
-  a
-    color: #a9d3f0 !important
+// Twitter icon
+.navbar--twitter
+  color: $navbar-dark-color
+  top: -10px
+  position: relative
+  font-size: 22px
+  span
+    position: relative
+    font-size: .75rem
+    visibility: hidden
+    opacity: 0
+    transition: 0.3s
+    top: -3px
+    left: -8px
+  &:hover
+    color: $white
+    span
+      visibility: visible
+      opacity: 1
+      left: 0px
 
-header
+.navbar-nav
+  .nav-link
+    padding: 1rem 2rem
+    font-size: 1.2rem
+    &:hover
+      background-color: $primary-medium-color
+    i
+      padding-right: .3rem
+
+/* Header */
+.main--header
   margin-bottom: 2rem
-  padding-bottom: 1em
+  padding: 1.6rem 0 3.2rem
+  img
+    padding-right: 1rem
   a
     font-weight: bold
+    &:hover
+      color: $white
+  h1, p, a
+    color: $light-text-color
 
-.card-personal
-  color: $primary-color
+// Home page specific
+.home
+  .cards--photos
+    border-left: 1px solid #eee
+    padding-left: 3rem
 
+
+
+// List of blog posts
+// .card-personal
+//   color: $primary-color
 
 .cards--posts
   .card
@@ -48,9 +140,7 @@ header
     padding: 1rem 1rem 0.5rem 1rem
     margin: 0
 
-img
-  max-width: 100%
-
+// List of photo posts
 .cards--photos
   .card-img-overlay
     &:hover
@@ -63,15 +153,6 @@ img
     color: #1a1a1a
     width: 100%
     padding: 0.4rem 0.6rem
-
-
-.bold
-  font-weight: bold
-.link-primary
-  color: $primary-color
-.link-secondary
-  color: $secondary-color
-
 .card-category--default
   color: #555
   &:hover
@@ -87,9 +168,3 @@ img
   &:hover
     background-color: $secondary-color-light
     color: $secondary-color-light-text
-
-
-.home
-  .cards--photos
-    border-left: 1px solid #eee
-    padding-left: 3rem

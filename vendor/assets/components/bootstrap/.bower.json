@@ -29,17 +29,16 @@
     "test-infra"
   ],
   "dependencies": {
-    "jquery": "1.9.1 - 2"
+    "jquery": "1.9.1 - 2",
+    "tether": "^1.1.1"
   },
-  "version": "4.0.0-alpha.2",
-  "_release": "4.0.0-alpha.2",
+  "_release": "315755a414",
   "_resolution": {
-    "type": "version",
-    "tag": "v4.0.0-alpha.2",
-    "commit": "48938155eb24b4ccdde09426066869504c6dab3c"
+    "type": "branch",
+    "branch": "v4-dev",
+    "commit": "315755a4141e33ec7b92cede79df2b6d2a0e19ae"
   },
-  "_source": "https://github.com/twbs/bootstrap.git",
-  "_target": "v4.0.0-alpha.2",
-  "_originalSource": "bootstrap",
-  "_direct": true
+  "_source": "git@github.com:twbs/bootstrap.git",
+  "_target": "v4-dev",
+  "_originalSource": "git@github.com:twbs/bootstrap.git"
 }
